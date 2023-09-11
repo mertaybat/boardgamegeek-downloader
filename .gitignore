@@ -6,4 +6,5 @@ archives
 html-pages
 xmls
 credentials.properties
+node_modules
 
