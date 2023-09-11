@@ -1,0 +1,19 @@
+<h1>{{data.name}}</h1>
+<img src="{{data.thumbnailImageLink}}"/>
+<div>
+    <p>Year Published: {{data.yearPublished}}</p>
+    <p>Publisher: {{data.publisher}}</p>
+    <p>Age: {{data.age}}+</p>
+</div>
+<h2>Description</h2>
+<div [innerHtml]="data.description"></div>
+<h2>Category</h2>
+<p>Category: {{data.category}}</p>
+<p>Families: {{data.families}}</p>
+<p>Game Mechanics: {{data.gameMechanics}}</p>
+<h2>Statistics</h2>
+<p>Board Game Rank: {{data.boardGameRank}}</p>
+<p>Best Played With: {{data.bestPlayedWith}}</p>
+<p>Min Players: {{data.minPlayers}}</p>
+<p>Max Players: {{data.maxPlayers}}</p>
+<p>Play Time: {{data.playingTime}}</p>

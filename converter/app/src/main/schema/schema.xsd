@@ -1,0 +1,319 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="result">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="valueAttribute" use="optional"/>
+          <xs:attribute type="xs:short" name="numvotes" use="optional"/>
+          <xs:attribute type="xs:byte" name="level" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="results">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="result" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="numplayers" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rank">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="type" use="optional"/>
+          <xs:attribute type="xs:short" name="id" use="optional"/>
+          <xs:attribute type="xs:string" name="name" use="optional"/>
+          <xs:attribute type="xs:string" name="friendlyname" use="optional"/>
+          <xs:attribute type="xs:string" name="valueAttribute" use="optional"/>
+          <xs:attribute type="xs:float" name="bayesaverage" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="usersrated" type="xs:int"/>
+  <xs:element name="average" type="xs:float"/>
+  <xs:element name="bayesaverage" type="xs:float"/>
+  <xs:element name="ranks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rank" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="stddev" type="xs:float"/>
+  <xs:element name="median" type="xs:byte"/>
+  <xs:element name="owned" type="xs:int"/>
+  <xs:element name="trading" type="xs:short"/>
+  <xs:element name="wanting" type="xs:short"/>
+  <xs:element name="wishing" type="xs:short"/>
+  <xs:element name="numcomments" type="xs:short"/>
+  <xs:element name="numweights" type="xs:short"/>
+  <xs:element name="averageweight" type="xs:float"/>
+  <xs:element name="ratings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="usersrated"/>
+        <xs:element ref="average"/>
+        <xs:element ref="bayesaverage"/>
+        <xs:element ref="ranks"/>
+        <xs:element ref="stddev"/>
+        <xs:element ref="median"/>
+        <xs:element ref="owned"/>
+        <xs:element ref="trading"/>
+        <xs:element ref="wanting"/>
+        <xs:element ref="wishing"/>
+        <xs:element ref="numcomments"/>
+        <xs:element ref="numweights"/>
+        <xs:element ref="averageweight"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="yearpublished" type="xs:short"/>
+  <xs:element name="minplayers" type="xs:int"/>
+  <xs:element name="maxplayers" type="xs:int"/>
+  <xs:element name="playingtime" type="xs:int"/>
+  <xs:element name="minplaytime" type="xs:int"/>
+  <xs:element name="maxplaytime" type="xs:int"/>
+  <xs:element name="age" type="xs:int"/>
+  <xs:element name="name">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:byte" name="sortindex" use="optional"/>
+          <xs:attribute type="xs:string" name="primary" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="thumbnail" type="xs:string"/>
+  <xs:element name="image" type="xs:string"/>
+  <xs:element name="boardgamehonor">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgameartist">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamepublisher">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:short" name="objectid"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamepodcastepisode">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgameinsertdesigner">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgameversion">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamecategory">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:short" name="objectid"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamefamily">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamemechanic">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamesubdomain">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:short" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgameexpansion">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="commerceweblink">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamedesigner">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamegraphicdesigner">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgamesolodesigner">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="videogamebg">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgameaccessory">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgameintegration">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:int" name="objectid" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="poll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="results" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="name" use="optional"/>
+      <xs:attribute type="xs:string" name="title" use="optional"/>
+      <xs:attribute type="xs:short" name="totalvotes" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="statistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ratings"/>
+      </xs:sequence>
+      <xs:attribute type="xs:byte" name="page"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="yearpublished"/>
+        <xs:element ref="minplayers"/>
+        <xs:element ref="maxplayers"/>
+        <xs:element ref="playingtime"/>
+        <xs:element ref="minplaytime"/>
+        <xs:element ref="maxplaytime"/>
+        <xs:element ref="age"/>
+        <xs:element ref="name" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="description"/>
+        <xs:element ref="thumbnail"/>
+        <xs:element ref="image"/>
+        <xs:element ref="boardgamehonor" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="boardgameartist" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="boardgamepublisher"/>
+        <xs:element ref="boardgamepodcastepisode" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="boardgameinsertdesigner"/>
+        <xs:element ref="boardgameversion"/>
+        <xs:element ref="boardgamecategory"/>
+        <xs:element ref="boardgamefamily" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="boardgamemechanic"/>
+        <xs:element ref="boardgamesubdomain"/>
+        <xs:element ref="boardgameexpansion"/>
+        <xs:element ref="commerceweblink"/>
+        <xs:element ref="boardgamedesigner"/>
+        <xs:element ref="boardgamegraphicdesigner"/>
+        <xs:element ref="boardgamesolodesigner"/>
+        <xs:element ref="videogamebg"/>
+        <xs:element ref="boardgameaccessory" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="boardgameintegration"/>
+        <xs:element ref="poll" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="statistics"/>
+      </xs:sequence>
+      <xs:attribute type="xs:int" name="objectid"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="boardgames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="boardgame" maxOccurs="unbounded" minOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="termsofuse"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
