@@ -11,12 +11,17 @@ Boardgamegeek XML API v.1 is used to download the original XML data.
 ## Prerequisites
 
 - Create a user account at https://boardgamegeek.com
+- Login at boardgamegeek
+- Open your browser developer tools to view the network stack
+- While your network stack is open browse all boardgames and look at request headers of the GET request
+- Note the Cookie valules for bggusername and bggpassword. You will use these values for the following step.
 - At the root of this project create a file called credentials.properties. This file should contain the following lines
 ```
-username=YOUR_BOARDGAMEGEEK_USERNAME
-password=YOUR_BOARDGAMEGEEK_PASSWORD
+username=bggusername_cookie_value
+password=bggpassword_cookie_value
 ``` 
-This information is necessary in order to download all the html pages for all the ranked games from boardgamegeek.
+This information is necessary in order to download all the html pages for all the ranked games from boardgamegeek. Note: bggpassword value
+will be different from the password you created while creating your boardgamegeek account!
 
 - You need to have the following software installed
     
