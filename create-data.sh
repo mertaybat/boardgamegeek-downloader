@@ -69,8 +69,6 @@ done
 # run conversion app on xmls
 sed -i 's/value/valueAttribute/g' ./*.xml
 java -jar app.jar
-jq '.' boardgames.json > boardgames-formatted.json
-jq '.' boardgames-custom.json > boardgames-custom-formatted.json
 sed -i 's/valueAttribute/value/g' ./*.xml
 sed -i 's/valueAttribute/value/g' ./*.json
 cp boardgames-custom.json ../games-list/src/assets/

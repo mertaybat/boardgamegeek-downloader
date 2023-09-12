@@ -31,7 +31,6 @@ will be different from the password you created while creating your boardgamegee
     - Java JDK v 11+
     - awk
     - sed
-    - jq
     - tar
     - gzip
 
