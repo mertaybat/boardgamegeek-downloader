@@ -47,8 +47,8 @@ In order not to generate too much load on boardgamegeek, every XML API call is p
 recommended and required by boardgamegeek.
 
 The script will first create some necessary directories and create archives of your old runs.
-Then it will first download the first 249 html pages of ranked games from boardgamegeek.com. It will 
-then generate a list of game ids that correspond to those 24900 games (every page contains 100 games).
+Then it will first download the first 251 html pages of ranked games from boardgamegeek.com. It will 
+then generate a list of game ids that correspond to those games that have a rank.
 It will then download using the boardgamegeek XML api v.1 to download the xml data of these games. Finally it will 
 run a small software program contained in the converter directory to convert all the xml data to json. It will generate
 2 json files; one maps 1-1 to the xml data and another which is custom format used by the frontend application.

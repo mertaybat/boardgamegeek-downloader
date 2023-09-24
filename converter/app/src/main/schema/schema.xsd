@@ -27,7 +27,7 @@
           <xs:attribute type="xs:string" name="name" use="optional"/>
           <xs:attribute type="xs:string" name="friendlyname" use="optional"/>
           <xs:attribute type="xs:string" name="valueAttribute" use="optional"/>
-          <xs:attribute type="xs:float" name="bayesaverage" use="optional"/>
+          <xs:attribute type="xs:string" name="bayesaverage" use="optional"/>
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>

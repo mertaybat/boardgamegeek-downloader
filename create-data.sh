@@ -50,14 +50,14 @@ cd ../
 
 # download all html data create ids
 cd html-pages
-for i in {1..249}; do curl https://boardgamegeek.com/browse/boardgame/page/$i -o $i.html --compressed -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Accept-Encoding: gzip, deflate, br" -H "DNT: 1" -H "Alt-Used: boardgamegeek.com" -H "Connection: keep-alive" -H "Cookie: bggusername=$username; bggpassword=$password" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -H "TE: trailers"; done
-ag -o "href=\"/boardgame/\d{1,10}/.*?\"\s>" | awk -F "/" '{print $3}' > ids.txt
+for i in {1..251}; do curl https://boardgamegeek.com/browse/boardgame/page/$i -o $i.html --compressed -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Accept-Encoding: gzip, deflate, br" -H "DNT: 1" -H "Alt-Used: boardgamegeek.com" -H "Connection: keep-alive" -H "Cookie: bggusername=$username; bggpassword=$password" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -H "TE: trailers"; done
+ag -o "href=\"/(boardgame|boardgameexpansion)/\d{1,10}/.*?\"\s>" | awk -F "/" '{print $3}' > ids.txt
 cd ../
 
 
 # download all xmls
 cd xmls
-for i in {1..249}
+for i in {1..251}
 do
         let start="1+($i-1)*100"
         let end="$i*100"
