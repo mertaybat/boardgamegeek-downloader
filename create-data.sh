@@ -4,7 +4,6 @@ today=`date +%d-%m-%y`
 uuid=`uuidgen`
 html_archive_tar=`echo htmls-$today-$uuid.tar`
 xml_archive_tar=`echo xmls-$today-$uuid.tar`
-source ./credentials.properties
 
 # check if necessary directories are there, if not create them
 if [ ! -d ./html-pages ]; then
@@ -50,20 +49,29 @@ cd ../
 
 # download all html data create ids
 cd html-pages
-for i in {1..251}; do curl https://boardgamegeek.com/browse/boardgame/page/$i -o $i.html --compressed -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8" -H "Accept-Language: en-US,en;q=0.5" -H "Accept-Encoding: gzip, deflate, br" -H "DNT: 1" -H "Alt-Used: boardgamegeek.com" -H "Connection: keep-alive" -H "Cookie: bggusername=$username; bggpassword=$password" -H "Upgrade-Insecure-Requests: 1" -H "Sec-Fetch-Dest: document" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-User: ?1" -H "TE: trailers"; done
-ag -o "href=\"/(boardgame|boardgameexpansion)/\d{1,10}/.*?\"\s>" | awk -F "/" '{print $3}' > ids.txt
+for i in {1..15}
+do
+        wget https://boardgamegeek.com/sitemap_geekitems_boardgame_page_$i -O ./$i.html
+done
+for i in {1..4}
+do
+	wget https://boardgamegeek.com/sitemap_geekitems_boardgameexpansion_page_$i -O ./$i-expansion.html
+done
+ag -o "/(boardgame|boardgameexpansion)/\d{1,10}/.*?" | awk -F "/" '{print $3}' > ids.txt
 cd ../
 
 
 # download all xmls
 cd xmls
-for i in {1..251}
+total=`cat ../html-pages/ids.txt | wc -l`
+let to="($total+200-1)/200"
+for i in $(eval echo "{1..$to}")
 do
-        let start="1+($i-1)*100"
-        let end="$i*100"
+        let start="1+($i-1)*200"
+        let end="$i*200"
         v=$(for j in `cat ../html-pages/ids.txt | awk -v a=$start -v b=$end 'FNR >=a && FNR <=b'`; do echo -n $j,; done)
         wget https://boardgamegeek.com/xmlapi/boardgame/$v?stats=1 -O ./$i.xml
-        sleep 5
+	sleep 5
 done
 
 # run conversion app on xmls
@@ -74,6 +82,4 @@ sed -i 's/valueAttribute/value/g' ./*.json
 cp boardgames-custom.json ../games-list/src/assets/
 cd ../
 
-unset username
-unset password
 

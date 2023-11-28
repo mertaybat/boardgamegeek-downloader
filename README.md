@@ -10,22 +10,8 @@ Boardgamegeek XML API v.1 is used to download the original XML data.
 
 ## Prerequisites
 
-- Create a user account at https://boardgamegeek.com
-- Login at boardgamegeek
-- Open your browser developer tools to view the network stack
-- While your network stack is open browse all boardgames and look at request headers of the GET request
-- Note the Cookie valules for bggusername and bggpassword. You will use these values for the following step.
-- At the root of this project create a file called credentials.properties. This file should contain the following lines
-```
-username=bggusername_cookie_value
-password=bggpassword_cookie_value
-``` 
-This information is necessary in order to download all the html pages for all the ranked games from boardgamegeek. Note: bggpassword value
-will be different from the password you created while creating your boardgamegeek account!
-
-- You need to have the following software installed
+You need to have the following software installed
     
-    - curl
     - wget
     - silversearcher
     - Java JDK v 11+
@@ -42,14 +28,14 @@ You need to run
 ./create-data.sh
 ```
 
-This will take about 1 hour to complete to download 24900 ranked games from boardgamegeek.
-In order not to generate too much load on boardgamegeek, every XML API call is performed after 5seconds of wait. This is
+This will take about 4-5 hours to complete to download all games' XML data from boardgamegeek.
+In order not to generate too much load on boardgamegeek, every XML API call is performed after 5 seconds of wait. This is
 recommended and required by boardgamegeek.
 
 The script will first create some necessary directories and create archives of your old runs.
-Then it will first download the first 251 html pages of ranked games from boardgamegeek.com. It will 
-then generate a list of game ids that correspond to those games that have a rank.
-It will then download using the boardgamegeek XML api v.1 to download the xml data of these games. Finally it will 
+Then it will first download the sitemap boardgame pages from boardgamegeek.com. It will 
+then generate a list of game ids that correspond to those games.
+It will then download, using the boardgamegeek XML api v.1, the xml data of these games. Finally it will 
 run a small software program contained in the converter directory to convert all the xml data to json. It will generate
 2 json files; one maps 1-1 to the xml data and another which is custom format used by the frontend application.
 
