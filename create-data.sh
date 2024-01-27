@@ -49,7 +49,7 @@ cd ../
 
 # download all html data create ids
 cd html-pages
-for i in {1..15}
+for i in {1..16}
 do
         wget https://boardgamegeek.com/sitemap_geekitems_boardgame_page_$i -O ./$i.html
 done
